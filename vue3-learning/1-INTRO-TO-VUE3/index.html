@@ -12,7 +12,17 @@
 
       <!-- <button class="button" v-on:click="logic to run">Add to Cart</button> -->
 
-      <div class="cart">Cart({{ cart }})</div>
+      <div class="cart" :style="{color:cartColor}" >Cart({{ cart }})</div>
+      <div class="cost">单价：{{cost}}</div>
+      <div class="cost">总金额：{{fullCost}}</div>
+
+      <!-- 新增：进度条 -->
+      <!-- <div class="progress">
+        <p >
+          <label for="file">完成度：</label>
+          <progress :style="{color: progressColor}" max="100" :value="66"></progress>
+      </p>
+      </div> -->
       
       <div class="product-display">
         <div class="product-container">
@@ -26,17 +36,16 @@
             <ul>
               <li v-for="detail in details">{{ detail }}</li>
             </ul>
-            <div v-for="variant in variants" 
+            <div v-for="(variant,index) in variants" 
             :key="variant.id" 
-            @mouseover="updateImage(variant.image)"
-            class="color-circle active"
-            :class="[isActive ? activeClass : '']"
+            @mouseover="updateVariant(index)"
+            class="color-circle"
             :style="{backgroundColor: variant.color}">
             </div>
             <button class="button" 
             :class="{ disabledButton: !inStock }" 
             :disabled="!inStock" 
-            @click="addToCart">Add to Cart</button>
+            v-on:click="addToCart">Add to Cart</button>
           </div>
         </div>
       </div>

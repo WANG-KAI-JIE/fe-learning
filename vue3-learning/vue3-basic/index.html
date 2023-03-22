@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引用样式 -->
+    <link rel="stylesheet" href="style.css" />
+    <title>使用了组件的页面</title>
+</head>
+<body>
+  <h2>用Vue写的卖袜子页面</h2>
+
+
+  <div id="root">
+    <div class="nav-bar"></div>
+    <div class="cart">Cart({{ cart }})</div>
+    <product-display :free="vip" @add-to-cart="updateCartParent"></product-display>
+    <product-display @add-to-cart="updateCartParent"></product-display>
+    <product-display :free="vip" @add-to-cart="updateCartParent"></product-display>
+    <product-display :free="vip" @add-to-cart="updateCartParent"></product-display>
+    <product-display :free="vip" @add-to-cart="updateCartParent"></product-display>
+    <product-display :free="vip" @add-to-cart="updateCartParent"></product-display>
+  </div>
+
+
+
+
+  <!-- <div id="root" v-for="(variant,index) in variants " :key="variant.id">
+    <product-show></product-show>
+  </div> -->
+
+
+
+  
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./main.js"></script>
+    <!-- 引入组件 -->
+    <script src="./components/ProductDisplay.js"></script>
+    <script src="./components/ProductInfo.js"></script>
+
+    <script src="./components/ReviewForm.js"></script>
+
+    <script src="./components/ReviewList.js"></script>
+
+    <script>
+      const mountedApp = app.mount("#root");
+    </script>
+  
+    
+</body>
+</html>

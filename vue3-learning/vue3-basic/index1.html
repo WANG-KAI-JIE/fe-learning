@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="root">
+      <h2>购物车</h2>
+      <h3>商品名：{{productName}}</h3>
+      <h3>商品单价：{{cost}}</h3>
+      <h3>商品数量：{{number}}</h3>
+      <h4>总金额：{{cost}}*{{number}}={{fullCost}}</h4>
+      
+
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./main.js"></script>
+    <script>
+      const mountedApp = app.mount("#root");
+    </script>
+  </body>
+</html>

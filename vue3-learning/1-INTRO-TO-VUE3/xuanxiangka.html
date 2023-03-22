@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a :class="{active : Index ==1 }" @click="changeNav(1)">学校新闻</a>
+                <div v-if="Index == 1" class="line"></div>
+            </li>
+            <li>
+                <a :class="{active : Index ==2 }" @click="changeNav(2)">就业新闻</a>
+                <div v-if="Index == 2" class="line"></div>
+            </li>
+            <li>
+                <a :class="{active : Index ==3 }" @click="changeNav(3)">行业新闻</a>
+                <div v-if="Index == 3" class="line"></div>
+            </li>
+        </ul>
+    </nav>
+    
+</body>
+</html>

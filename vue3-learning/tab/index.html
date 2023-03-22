@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡</title>
+    <style>
+        :root{
+            --grey: #5b5757;
+            --blue:#54b8d9;
+        }
+        *,
+        ::after
+        ::before{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul{
+            list-style-type: none;
+        }
+        a{
+            text-decoration: none;
+            counter-reset: var(--grey);
+        }
+        .container{
+            width: 50%;
+            margin: 0 auto;
+        }
+        
+        .tab-bar ul{
+            display: flex;
+            justify-content: space-around;
+        }
+        .tab-bar li{
+            padding: 10px 20px;
+        }
+        .tab-bar a{
+            padding-bottom: 8px;
+        }
+        .tab-bar span{
+            font-size: 13px;
+        }
+        .tab-content{
+            min-height: 300px;
+            border: 1px solid var(--blue);
+            border-radius: 4px;
+            margin-top: 10px;
+            padding: 10px;
+            color: var(--grey);
+        }
+        .active{
+            color: var(--blue);
+            font-weight: bold;
+            border-bottom: 2px solid var(--blue);
+        }
+    
+    </style>
+</head>
+<body style="background-image: url('images/bj-full.png');background-size: 100%;">
+    <!-- <img src="/tab/images/caipu.png"> -->
+    <div id="app">
+        <div class="container" style=" background-image: url('images/bj.png');background-size: 100%;">
+            <h3 style="text-align: center; background-color: cornflowerblue;">选项卡</h3>
+            <!-- 选项卡标题栏 -->
+            <div class="tab-bar" style="text-align: center;">
+                <ul>
+                    <!-- 遍历 tabs 数组，给每个 tab 绑定点击事件，传递当前项在数组中的索引 -->
+                    <li v-for="(tab,index) in tabs" :key="{index}"
+                    @click="changeTab(index)">
+                    <!-- 给 a 指定动态样式绑定，当前项在数组中的索引和 Vue 中状态数据一致时，表示需要激活当前项高亮样式 -->
+                    <a href="#" :class="currentIdx === index ? 'active': ''">
+                        {{tab.name}}
+                        <span>{{tab.count}}</span>
+                        <!-- <span>{{tab.icon}}</span> -->
+                        <!-- <img src="{{tab.icon}}"> -->
+                    </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 遍历 tab 内容数组，排他性，每次只显示一个，显示条件同上 -->
+            <div v-for="(content,index) in contents">
+                <div v-if="currentIdx === index" class="tab-content">
+                    <!-- 解析出 list 属性，再循环 -->
+                    <div v-for="(item,idx) in content.list">
+                        <p>{{item}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
