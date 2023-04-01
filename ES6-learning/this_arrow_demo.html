@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用箭头函数解决 this 的指向问题</title>
+</head>
+
+<body>
+    <script>
+        // this 指向的是调用它的对象
+        var title = '全局标题'
+        var obj = {
+            title: 'ES6 学习',
+            getTitle: () => {
+                // 箭头函数没有自己的 this 指向
+                console.log(this.title);
+            }
+        }
+        obj.getTitle() // ES6学习
+        var bar = obj.getTitle // bar 属于 window 下的方法
+        window.bar() // 调用 bar 方法的是：window对象，所以打印 window 下的 title
+    </script>
+</body>
+
+</html>
