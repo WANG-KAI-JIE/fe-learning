@@ -1,5 +1,5 @@
 <script setup>
-import useWindowResize from '../hooks/useWindowResize.js';
+import useWindowResize from '../use/useWindowResize.js';
 import { ref } from 'vue'
 const { width, height } = useWindowResize();
 const redColor = ref('red')

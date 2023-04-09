@@ -25,6 +25,10 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/time">时间</RouterLink>
         <RouterLink to="/css">样式切换</RouterLink>
         <RouterLink to="/show">作业展示</RouterLink>
+        <RouterLink to="/use">useList</RouterLink>
+        <RouterLink to="/socks">袜子</RouterLink>
+        <RouterLink to="/todolist">TodoList</RouterLink>
+
       </nav>
     </div>
   </header>

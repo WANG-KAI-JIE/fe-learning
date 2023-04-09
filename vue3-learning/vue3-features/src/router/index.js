@@ -17,6 +17,10 @@ import Component3View from '../views/Component3View.vue'
 import Component4View from '../views/Component4View.vue'
 import DirectiveView from '../views/DirectiveView.vue'
 import HooksView from '../views/HooksView.vue'
+import UseView from '../views/UseView.vue'
+// import SocksView from '../views/SocksView.vue'
+
+import TodoApp from '../views/TodoApp.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -115,6 +119,22 @@ const router = createRouter({
           path: 'hooks',
           name: 'hooks',
           component: HooksView,
+        },
+        {
+          path: 'use',
+          name: 'use',
+          component: UseView,
+        },
+        // {
+        //   path: 'socks',
+        //   name: 'socks',
+        //   component: SocksView,
+        // }
+        {
+          path: 'todolist',
+          name: 'todolist',
+          component: TodoApp
+
         },
       ],
     },

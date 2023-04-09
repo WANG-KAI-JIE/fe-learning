@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+.mist-border-1 {
+    @apply border;
+    @apply border-solid;
+    @apply border-mist;
+} */

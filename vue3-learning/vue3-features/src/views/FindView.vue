@@ -3,6 +3,7 @@ import SlotComp from '../components/SlotComp.vue';
 </script>
 
 <template>
+  插槽
   <div>
     <SlotComp>
       <template v-slot:header>
